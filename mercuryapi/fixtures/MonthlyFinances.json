@@ -1,0 +1,134 @@
+[
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":1,
+        "fields": {
+            "month":"January 2021",
+            "monthlyCost": 6000,
+            "monthlyRevenue": 10589,
+            "monthlyProfits": 4589
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":2,
+        "fields": {
+            "month":"February 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":7500,
+            "monthlyProfits":1500
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":3,
+        "fields": {
+            "month":"March 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":4500,
+            "monthlyProfits":-1500
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":4,
+        "fields": {
+            "month":"April 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":15000,
+            "monthlyProfits":9000
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":5,
+        "fields": {
+            "month":"May 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":10000,
+            "monthlyProfits":4000
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":6,
+        "fields": {
+            "month":"June 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":7342,
+            "monthlyProfits":1342
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":7,
+        "fields": {
+            "month":"July 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":8560,
+            "monthlyProfits":2560
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":8,
+        "fields": {
+            "month":"August 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":25123,
+            "monthlyProfits":9123
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":9,
+        "fields": {
+            "month":"September 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":6050,
+            "monthlyProfits":50
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":10,
+        "fields": {
+            "month":"October 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":9932,
+            "monthlyProfits":3932
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":11,
+        "fields": {
+            "month":"November 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":3500,
+            "monthlyProfits":-2500
+
+        }
+    }
+    {
+        "model": "mercuryapi.MonthlyFinance",
+        "pk":12,
+        "fields": {
+            "month":"December 2021",
+            "monthlyCost":6000,
+            "monthlyRevenue":30000,
+            "monthlyProfits":17000
+
+        }
+    }
+]

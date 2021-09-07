@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+autopep8 = "*"
+django = "*"
+pylint = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+pylint-django = "*"
+
+[dev-packages]
+pylint = "*"
+
+[requires]
+python_version = "3.9"
