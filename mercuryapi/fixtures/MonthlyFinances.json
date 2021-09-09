@@ -9,7 +9,7 @@
             "monthlyProfits": 4589
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":2,
@@ -20,7 +20,7 @@
             "monthlyProfits":1500
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":3,
@@ -31,7 +31,7 @@
             "monthlyProfits":-1500
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":4,
@@ -42,7 +42,7 @@
             "monthlyProfits":9000
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":5,
@@ -53,7 +53,7 @@
             "monthlyProfits":4000
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":6,
@@ -64,7 +64,7 @@
             "monthlyProfits":1342
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":7,
@@ -75,7 +75,7 @@
             "monthlyProfits":2560
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":8,
@@ -86,7 +86,7 @@
             "monthlyProfits":9123
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":9,
@@ -97,7 +97,7 @@
             "monthlyProfits":50
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":10,
@@ -108,7 +108,7 @@
             "monthlyProfits":3932
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":11,
@@ -119,7 +119,7 @@
             "monthlyProfits":-2500
 
         }
-    }
+    },
     {
         "model": "mercuryapi.MonthlyFinance",
         "pk":12,
