@@ -1,0 +1,13 @@
+[
+    {
+        "model": "mercuryapi.employeeschedule",
+        "pk": 1,
+        "fields": {
+            "employee": 1,
+            "date": "2021-09-09",
+            "startTime": 900,
+            "endTime": 1800,
+            "totalHours": 9
+        }
+    }
+]

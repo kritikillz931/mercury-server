@@ -1,0 +1,9 @@
+[
+    {
+        "model": "mercuryapi.department",
+        "pk": 1,
+        "fields": {
+            "name": "Electronics"
+        }
+    }
+]

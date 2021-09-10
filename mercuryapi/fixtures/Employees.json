@@ -1,0 +1,14 @@
+[
+    {
+        "model": "mercuryapi.employee",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "fullName": "Justin Adams",
+            "position": "Electronics",
+            "dateHired": "2021-09-09",
+            "monthlySales": 15,
+            "department": 1
+        }
+    }
+]

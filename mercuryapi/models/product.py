@@ -8,4 +8,4 @@ class Product(models.Model):
     cost = models.IntegerField()
     priceSold = models.IntegerField()
     stock = models.IntegerField()
-    department_Id = models.ForeignKey("DepartmentName", on_delete=models.CASCADE)
+    department = models.ForeignKey("department", on_delete=models.CASCADE)

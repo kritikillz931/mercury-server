@@ -8,4 +8,4 @@ class Employee(models.Model):
     position = models.CharField(max_length=100)
     dateHired = models.DateField()
     monthlySales = models.IntegerField()
-    department_Id = models.ForeignKey("DepartmentName", on_delete=models.CASCADE)
+    department = models.ForeignKey("department", on_delete=models.CASCADE)
