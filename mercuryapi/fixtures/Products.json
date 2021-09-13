@@ -1,0 +1,14 @@
+[
+    {
+        "model": "mercuryapi.product",
+        "pk": 1,
+        "fields": {
+            "department": 1,
+            "image": "www.google.com",
+            "name": "Airpods Gen Pro",
+            "cost": 20,
+            "priceSold": 175,
+            "stock": 100
+        }
+    }
+]
