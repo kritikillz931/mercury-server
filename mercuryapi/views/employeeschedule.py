@@ -1,6 +1,7 @@
 """View module for handling requests about games"""
 
-from mercuryapi.models.employee import Employee
+from mercuryapi.models import employeeSchedule
+from mercuryapi.models.employeeSchedule import EmployeeSchedule
 from django.core.exceptions import ValidationError
 from rest_framework import status
 from django.http import HttpResponseServerError
@@ -8,34 +9,36 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers 
 from rest_framework import status
+from datetime import date
 
 
-class EmployeeView(ViewSet):
+class EmployeeScheduleView(ViewSet):
     """Level up games"""
 
     def create(self, request):
         """Handle POST operations
         Returns:
-            Response -- JSON serialized employee instance
+            Response -- JSON serialized Schedule instance
         """
 
         # Uses the token passed in the `Authorization` header
-        employee = Employee.objects.get(user=request.auth.user)
+        employeeSchedule = EmployeeSchedule.objects.get(user=request.auth.user)
 
         # Create a new Python instance of the Game class
         # and set its properties from what was sent in the
         # body of the request from the client.
-        employee = Employee()
-        employee.position = request.data["position"]
-        employee.dateHired = request.data["dateHired"]
-        employee.monthlySales = request.data["monthlySales"]
+        employeeSchedule = EmployeeSchedule()
+        employeeSchedule.date.time()
+        employeeSchedule.startTime = request.data["startTime"]
+        employeeSchedule.endTime = request.data["endTime"]
+        employeeSchedule.totalHours = request.data["totalHours"]
 
-        # Try to save the new employee to the database, then
-        # serialize the employee instance as JSON, and send the
+        # Try to save the new Schedule to the database, then
+        # serialize the Schedule instance as JSON, and send the
         # JSON as a response to the client request
         try:
-            employee.save()
-            serializer = EmployeeSerializer(employee, context={'request': request})
+            employeeSchedule.save()
+            serializer = EmployeeScheduleSerializer(employeeSchedule, context={'request': request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         # If anything went wrong, catch the exception and
@@ -47,9 +50,9 @@ class EmployeeView(ViewSet):
 
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for single employee
+        """Handle GET requests for single Schedule
         Returns:
-            Response -- JSON serialized employee instance
+            Response -- JSON serialized Schedule instance
         """
         try:
             # `pk` is a parameter to this function, and
@@ -57,27 +60,27 @@ class EmployeeView(ViewSet):
             #   http://localhost:8000/games/2
             #
             # The `2` at the end of the route becomes `pk`
-            employee = Employee.objects.get(pk=pk)
-            serializer = EmployeeSerializer(employee, context={'request': request})
+            employeeSchedule = EmployeeSchedule.objects.get(pk=pk)
+            serializer = EmployeeScheduleSerializer(employeeSchedule, context={'request': request})
             return Response(serializer.data)
-        except Employee.DoesNotExist as ex:
+        except EmployeeSchedule.DoesNotExist as ex:
             return Response(ex.args[0], status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
 
 
     def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single employee
+        """Handle DELETE requests for a single Schedule
         Returns:
             Response -- 200, 404, or 500 status code
         """
         try:
-            employee = Employee.objects.get(pk=pk)
-            employee.delete()
+            employeeSchedule = EmployeeSchedule.objects.get(pk=pk)
+            employeeSchedule.delete()
 
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-        except Employee.DoesNotExist as ex:
+        except EmployeeSchedule.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
@@ -88,22 +91,22 @@ class EmployeeView(ViewSet):
         Returns:
             Response -- JSON serialized list of games
         """
-        # Get all employee records from the database
-        employees = Employee.objects.all()
+        # Get all Schedule records from the database
+        employeeSchedules = EmployeeSchedule.objects.all()
 
         # Support filtering games by type
         #    http://localhost:8000/games?type=1
         #
         # That URL will retrieve all tabletop games
-        employee = self.request.query_params.get('employee', None)
-        if employee is not None:
-            employees = employees.filter(employees__id=employees)
+        employeeSchedule = self.request.query_params.get('employeeSchedule', None)
+        if employeeSchedule is not None:
+            employeeSchedules = employeeSchedules.filter(employeeSchedules__id=employeeSchedules)
 
-        serializer = EmployeeSerializer(
-            employees, many=True, context={'request': request})
+        serializer = EmployeeScheduleSerializer(
+            employeeSchedules, many=True, context={'request': request})
         return Response(serializer.data)
 
-class EmployeeSerializer(serializers.ModelSerializer):
+class EmployeeScheduleSerializer(serializers.ModelSerializer):
     """JSON serializer for games
     Arguments:
         serializer typeINSERT INTO levelupapi_game (
@@ -126,6 +129,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
           );
     """
     class Meta:
-        model = Employee
-        fields = ('id', 'position', 'dateHired', 'monthlySales', 'department', 'user')
+        model = EmployeeSchedule
+        fields = ('id', 'employee', 'date', 'startTime', 'endTime', 'totalHours')
         depth = 1
