@@ -18,10 +18,12 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.urls import path
 from mercuryapi.views import register_user, login_user
+from mercuryapi.views import MonthlyFinanceView
 
 
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'monthlyfinances', MonthlyFinanceView, 'monthlyfinance')
 
 urlpatterns = [
     path('', include(router.urls)),
