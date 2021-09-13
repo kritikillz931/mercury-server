@@ -14,16 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
 from django.conf.urls import include
 from rest_framework import routers
 from django.urls import path
 from mercuryapi.views import register_user, login_user
-from mercuryapi.views import MonthlyFinanceView
+from mercuryapi.views import MonthlyFinanceView, EmployeeView
+from mercuryapi.views.employee import EmployeeView
 
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'monthlyfinances', MonthlyFinanceView, 'monthlyfinance')
+router.register(r'employees', EmployeeView, 'employee')
 
 urlpatterns = [
     path('', include(router.urls)),
