@@ -4,7 +4,6 @@ from django.contrib.auth.models import User #pylint:disable=(imported-auth-user)
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework import status
-from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
@@ -12,7 +11,7 @@ from mercuryapi.models import Employee
 
 
 
-class EventView(ViewSet):
+class EmployeeView(ViewSet):
     """mercury employees"""
 
     def create(self, request):
@@ -23,7 +22,6 @@ class EventView(ViewSet):
         employee = Employee.objects.get(user=request.auth.user)
 
         employee = Employee()
-        employee.fullName = request.data["fullName"]
         employee.position = request.data["position"]
         employee.dateHired = request.data["dateHired"]
         employee.monthlySales = request.data["monthlySales"]
@@ -57,7 +55,6 @@ class EventView(ViewSet):
         """
 
         employee = Employee.objects.get(pk=pk)
-        employee.fullName = request.data["fullName"]
         employee.position = request.data["position"]
         employee.dateHired = request.data["dateHired"]
         employee.monthlySales = request.date["monthlySales"]
@@ -122,7 +119,7 @@ class DepartmentEmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Department
-        fields = ['user']
+        fields = ['name']
 
     class DepartmentSerializer(serializers.ModelSerializer):
         """JSON serializer for games"""
@@ -132,10 +129,10 @@ class DepartmentEmployeeSerializer(serializers.ModelSerializer):
 
 class EmployeeSerializer(serializers.ModelSerializer):
     """JSON serializer for events"""
-    department = DepartmentSerializer(many=False)
+    department = DepartmentEmployeeSerializer(many=False)
     
 
     class Meta:
         model = Employee
-        fields = ('id', 'fullName', 'position',
+        fields = ('id', 'position',
                   'dateHired', 'monthlySales', 'department')
