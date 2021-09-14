@@ -4,10 +4,59 @@
         "pk": 1,
         "fields": {
             "user": 1,
-            "position": "Electronics",
+            "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 15,
-            "department": 1
+            "department": 1,
+            "image": "https://d5t4h5a9.rocketcdn.me/wp-content/uploads/2020/11/Professional-Headshot-Poses-Blog-Post.jpg"
+        }
+    },
+    {
+        "model": "mercuryapi.employee",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "position": "Sales Rep",
+            "dateHired": "2021-09-09",
+            "monthlySales": 8,
+            "department": 2,
+            "image": "https://yt3.ggpht.com/ytc/AAUvwnjJml0jUQRsJeC6W6y2kvA9NmmpYhqLMUWuVGtw=s900-c-k-c0x00ffffff-no-rj"
+        }
+    },
+    {
+        "model": "mercuryapi.employee",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "position": "Sales Rep",
+            "dateHired": "2021-09-09",
+            "monthlySales": 65,
+            "department": 3,
+            "image": "https://chicagophotovideo.com/wp-content/uploads/2018/01/chicago-headshot-and-portrait-photographer.jpg"
+        }
+    },
+    {
+        "model": "mercuryapi.employee",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "position": "Sales Rep",
+            "dateHired": "2021-09-09",
+            "monthlySales": 35,
+            "department": 2,
+            "image": "https://images.squarespace-cdn.com/content/v1/53ed0e3ce4b0c296acaeae80/1584577511464-8FDZYWQVXUI1OBS4VTZP/Bonneville14082-Edit-DHWEB%2BNick%2BFerguson%2BDenver%2BBroncos%2BHeadshot%2BPhotography%2Bby%2BAaron%2BLucy%2BDenver%2BColorado%2BHeadshots%2BPhotographer.jpg?format=2500w"
+        }
+    },
+    {
+        "model": "mercuryapi.employee",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "position": "Sales Rep",
+            "dateHired": "2021-09-09",
+            "monthlySales": 62,
+            "department": 1,
+            "image": "https://srkheadshotday.com/wp-content/uploads/Herman_Man_Headshot_19G1006-1024x683.jpg"
         }
     }
 ]

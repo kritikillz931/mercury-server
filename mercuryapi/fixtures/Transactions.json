@@ -6,7 +6,7 @@
            "employee": 1,
            "product": 1,
            "date": "2021-09-09",
-           "priceSold": 150,
+           "pricePaid": 175,
            "quantity": 100
        }
     }

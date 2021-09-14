@@ -5,5 +5,22 @@
         "fields": {
             "name": "Electronics"
         }
+    },
+
+    {
+        "model": "mercuryapi.department",
+        "pk": 2,
+        "fields": {
+            "name": "Card Games"
+        }
+    },
+
+    {
+        "model": "mercuryapi.department",
+        "pk": 3,
+        "fields": {
+            "name": "Toys"
+        }
     }
+
 ]

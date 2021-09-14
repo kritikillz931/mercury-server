@@ -29,6 +29,7 @@ class EmployeeView(ViewSet):
         employee.position = request.data["position"]
         employee.dateHired = request.data["dateHired"]
         employee.monthlySales = request.data["monthlySales"]
+        employee.image = request.data["image"]
 
         # Try to save the new employee to the database, then
         # serialize the employee instance as JSON, and send the
@@ -127,5 +128,5 @@ class EmployeeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Employee
-        fields = ('id', 'position', 'dateHired', 'monthlySales', 'department', 'user')
+        fields = ('id', 'position', 'dateHired', 'monthlySales', 'image', 'department', 'user')
         depth = 1
