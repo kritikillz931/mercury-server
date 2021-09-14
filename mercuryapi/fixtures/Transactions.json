@@ -7,7 +7,161 @@
            "product": 1,
            "date": "2021-09-09",
            "priceSold": 175,
-           "quantity": 100
+           "quantitySold": 100
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 2,
+       "fields": {
+           "employee": 2,
+           "product": 3,
+           "date": "2021-09-09",
+           "priceSold": 30,
+           "quantitySold": 45
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 3,
+       "fields": {
+           "employee": 3,
+           "product": 2,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 650
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 4,
+       "fields": {
+           "employee": 4,
+           "product": 4,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 4
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 5,
+       "fields": {
+           "employee": 5,
+           "product": 5,
+           "date": "2021-09-09",
+           "priceSold": 50,
+           "quantitySold": 5
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 6,
+       "fields": {
+           "employee": 1,
+           "product": 1,
+           "date": "2021-09-09",
+           "priceSold": 175,
+           "quantitySold": 35
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 7,
+       "fields": {
+           "employee": 2,
+           "product": 2,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 100
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 8,
+       "fields": {
+           "employee": 3,
+           "product": 3,
+           "date": "2021-09-09",
+           "priceSold": 30,
+           "quantitySold": 10
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 9,
+       "fields": {
+           "employee": 4,
+           "product": 4,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 10
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 10,
+       "fields": {
+           "employee": 5,
+           "product": 5,
+           "date": "2021-09-09",
+           "priceSold": 50,
+           "quantitySold": 1
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 11,
+       "fields": {
+           "employee": 1,
+           "product": 1,
+           "date": "2021-09-09",
+           "priceSold": 175,
+           "quantitySold": 5
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 12,
+       "fields": {
+           "employee": 2,
+           "product": 2,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 300
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 13,
+       "fields": {
+           "employee": 3,
+           "product": 3,
+           "date": "2021-09-09",
+           "priceSold": 30,
+           "quantitySold": 22
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 14,
+       "fields": {
+           "employee": 4,
+           "product": 4,
+           "date": "2021-09-09",
+           "priceSold": 10,
+           "quantitySold": 27
+       }
+    },
+    {
+       "model": "mercuryapi.transaction",
+       "pk": 15,
+       "fields": {
+           "employee": 5,
+           "product": 5,
+           "date": "2021-09-09",
+           "priceSold": 50,
+           "quantitySold": 5
        }
     }
 ]
