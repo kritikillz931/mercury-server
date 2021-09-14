@@ -127,5 +127,5 @@ class TransactionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Transaction
-        fields = ('id', 'employee', 'product', 'date', 'priceSold', 'quantity')
+        fields = ('id', 'employee', 'product', 'date', 'priceSold', 'quantitySold')
         depth = 1

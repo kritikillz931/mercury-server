@@ -7,4 +7,4 @@ class Transaction(models.Model):
     employee = models.ForeignKey("employee", on_delete=models.CASCADE)
     product = models.ForeignKey("product", on_delete=models.CASCADE)
     priceSold = models.IntegerField()
-    quantity = models.IntegerField()
+    quantitySold = models.IntegerField()

@@ -8,7 +8,7 @@
             "name": "Airpods Gen Pro",
             "cost": 20,
             "priceSold": 175,
-            "stock": 100
+            "stock": 1000
         }
     },
     {
@@ -25,7 +25,7 @@
     },
     {
         "model": "mercuryapi.product",
-        "pk": 2,
+        "pk": 3,
         "fields": {
             "department": 3,
             "image": "https://i.ebayimg.com/images/g/6o8AAOSwW8Vf6c8Q/s-l640.jpg",
@@ -37,7 +37,7 @@
     },
     {
         "model": "mercuryapi.product",
-        "pk": 2,
+        "pk": 4,
         "fields": {
             "department": 2,
             "image": "https://m.media-amazon.com/images/I/810tOGKHZCL._AC_SL1500_.jpg",
@@ -49,7 +49,7 @@
     },
     {
         "model": "mercuryapi.product",
-        "pk": 2,
+        "pk": 5,
         "fields": {
             "department": 3,
             "image": "https://m.media-amazon.com/images/I/81Z34JtATFL._AC_SL1500_.jpg",
