@@ -15,12 +15,13 @@ Including another URLconf
 """
 
 
+from mercuryapi.views.product import ProductView
 from mercuryapi.models.employeeSchedule import EmployeeSchedule
 from django.conf.urls import include
 from rest_framework import routers
 from django.urls import path
 from mercuryapi.views import register_user, login_user
-from mercuryapi.views import MonthlyFinanceView, EmployeeView, EmployeeScheduleView
+from mercuryapi.views import MonthlyFinanceView, EmployeeView, EmployeeScheduleView, ProductView
 from mercuryapi.views.employee import EmployeeView
 
 
@@ -29,6 +30,7 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'monthlyfinances', MonthlyFinanceView, 'monthlyfinance')
 router.register(r'employees', EmployeeView, 'employee')
 router.register(r'employeeSchedules', EmployeeScheduleView, 'employeeschedule')
+router.register(r'products', ProductView, 'product')
 
 urlpatterns = [
     path('', include(router.urls)),
