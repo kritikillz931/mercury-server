@@ -1,6 +1,6 @@
 """View module for handling requests about games"""
-
-from mercuryapi.models.product import Product
+from mercuryapi.models import transaction
+from mercuryapi.models.transaction import Transaction
 from django.core.exceptions import ValidationError
 from rest_framework import status
 from django.http import HttpResponseServerError
@@ -8,9 +8,10 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers 
 from rest_framework import status
+from datetime import date
 
 
-class ProductView(ViewSet):
+class TransactionView(ViewSet):
     """Level up games"""
 
     def create(self, request):
@@ -20,24 +21,21 @@ class ProductView(ViewSet):
         """
 
         # Uses the token passed in the `Authorization` header
-        product = Product.objects.get(user=request.auth.user)
+        transaction = Transaction.objects.get(user=request.auth.user)
 
         # Create a new Python instance of the Game class
         # and set its properties from what was sent in the
         # body of the request from the client.
-        product = Product()
-        product.image = request.data["image"]
-        product.name = request.data["name"]
-        product.cost = request.data["cost"]
-        product.priceSold = request.data["priceSold"]
-        product.stock = request.data["cost"]
-
+        transaction = Transaction()
+        transaction.date.time() 
+        transaction.priceSold = request.data["priceSold"]
+        transaction.quantity = request.data["quantity"]
         # Try to save the new Schedule to the database, then
         # serialize the Schedule instance as JSON, and send the
         # JSON as a response to the client request
         try:
-            product.save()
-            serializer = ProductSerializer(product, context={'request': request})
+            transaction.save()
+            serializer = TransactionSerializer(product, context={'request': request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         # If anything went wrong, catch the exception and
@@ -59,10 +57,10 @@ class ProductView(ViewSet):
             #   http://localhost:8000/games/2
             #
             # The `2` at the end of the route becomes `pk`
-            product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(product, context={'request': request})
+            transaction = Transaction.objects.get(pk=pk)
+            serializer = TransactionSerializer(product, context={'request': request})
             return Response(serializer.data)
-        except Product.DoesNotExist as ex:
+        except Transaction.DoesNotExist as ex:
             return Response(ex.args[0], status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -74,12 +72,12 @@ class ProductView(ViewSet):
             Response -- 200, 404, or 500 status code
         """
         try:
-            product = Product.objects.get(pk=pk)
-            product.delete()
+            transaction = Transaction.objects.get(pk=pk)
+            transaction.delete()
 
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-        except Product.DoesNotExist as ex:
+        except Transaction.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
@@ -91,21 +89,21 @@ class ProductView(ViewSet):
             Response -- JSON serialized list of games
         """
         # Get all Schedule records from the database
-        products = Product.objects.all()
+        transactions = Transaction.objects.all()
 
         # Support filtering games by type
         #    http://localhost:8000/games?type=1
         #
         # That URL will retrieve all tabletop games
-        product = self.request.query_params.get('product', None)
-        if product is not None:
-            products = products.filter(products__id=products)
+        transaction = self.request.query_params.get('transaction', None)
+        if transaction is not None:
+            transactions = transactions.filter(transactions__id=transactions)
 
-        serializer = ProductSerializer(
-            products, many=True, context={'request': request})
+        serializer = TransactionSerializer(
+            transactions, many=True, context={'request': request})
         return Response(serializer.data)
 
-class ProductSerializer(serializers.ModelSerializer):
+class TransactionSerializer(serializers.ModelSerializer):
     """JSON serializer for games
     Arguments:
         serializer typeINSERT INTO levelupapi_game (
@@ -128,6 +126,6 @@ class ProductSerializer(serializers.ModelSerializer):
           );
     """
     class Meta:
-        model = Product
-        fields = ('id', 'department', 'image', 'name', 'cost', 'priceSold', 'stock')
+        model = Transaction
+        fields = ('id', 'employee', 'product', 'date', 'priceSold', 'quantity')
         depth = 1
