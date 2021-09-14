@@ -4,11 +4,59 @@
         "pk": 1,
         "fields": {
             "department": 1,
-            "image": "www.google.com",
+            "image": "https://www.nicepng.com/png/detail/298-2982212_apple-airpods-png.png",
             "name": "Airpods Gen Pro",
             "cost": 20,
             "priceSold": 175,
             "stock": 100
+        }
+    },
+    {
+        "model": "mercuryapi.product",
+        "pk": 2,
+        "fields": {
+            "department": 2,
+            "image": "https://m.media-amazon.com/images/I/81W-dgJKi+L._AC_SL1500_.jpg",
+            "name": "Pokemon Trading Cards",
+            "cost": 1,
+            "priceSold": 10,
+            "stock": 1000
+        }
+    },
+    {
+        "model": "mercuryapi.product",
+        "pk": 2,
+        "fields": {
+            "department": 3,
+            "image": "https://i.ebayimg.com/images/g/6o8AAOSwW8Vf6c8Q/s-l640.jpg",
+            "name": "Fortnite Action Figure",
+            "cost": 5,
+            "priceSold": 30,
+            "stock": 63
+        }
+    },
+    {
+        "model": "mercuryapi.product",
+        "pk": 2,
+        "fields": {
+            "department": 2,
+            "image": "https://m.media-amazon.com/images/I/810tOGKHZCL._AC_SL1500_.jpg",
+            "name": "UNO Playing Cards",
+            "cost": 3,
+            "priceSold": 10,
+            "stock": 100
+        }
+    },
+    {
+        "model": "mercuryapi.product",
+        "pk": 2,
+        "fields": {
+            "department": 3,
+            "image": "https://m.media-amazon.com/images/I/81Z34JtATFL._AC_SL1500_.jpg",
+            "name": "Furby",
+            "cost": 20,
+            "priceSold": 50,
+            "stock": 10
         }
     }
 ]
