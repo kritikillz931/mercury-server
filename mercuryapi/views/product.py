@@ -1,5 +1,6 @@
 """View module for handling requests about games"""
-
+from mercuryapi.models.department import Department
+from mercuryapi.models.employee import Employee
 from mercuryapi.models.product import Product
 from django.core.exceptions import ValidationError
 from rest_framework import status
@@ -11,16 +12,16 @@ from rest_framework import status
 
 
 class ProductView(ViewSet):
-    """Level up games"""
+
 
     def create(self, request):
         """Handle POST operations
         Returns:
             Response -- JSON serialized Schedule instance
         """
-
         # Uses the token passed in the `Authorization` header
-        product = Product.objects.get(user=request.auth.user)
+        employee = Employee.objects.get(user=request.auth.user) 
+
 
         # Create a new Python instance of the Game class
         # and set its properties from what was sent in the
@@ -31,6 +32,9 @@ class ProductView(ViewSet):
         product.cost = request.data["cost"]
         product.priceSold = request.data["priceSold"]
         product.stock = request.data["cost"]
+        department = Department.objects.get(pk=request.data["departmentId"])
+        product.department = department
+        product.employee = employee
 
         # Try to save the new Schedule to the database, then
         # serialize the Schedule instance as JSON, and send the
