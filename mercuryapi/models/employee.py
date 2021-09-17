@@ -8,6 +8,5 @@ class Employee(models.Model):
     last_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100 )
     dateHired = models.DateField()
-    monthlySales = models.IntegerField()
     image = models.CharField(max_length=1000)
     department = models.ForeignKey("department", on_delete=models.CASCADE)

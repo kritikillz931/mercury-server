@@ -5,7 +5,7 @@ class Product(models.Model):
 
     image = models.CharField(max_length=255)
     name = models.CharField(max_length=100)
-    cost = models.IntegerField()
-    priceSold = models.IntegerField()
+    wholeSaleCost = models.IntegerField()
+    retailPrice = models.IntegerField()
     stock = models.IntegerField()
     department = models.ForeignKey("department", on_delete=models.CASCADE)

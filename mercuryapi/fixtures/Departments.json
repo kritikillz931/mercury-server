@@ -21,6 +21,20 @@
         "fields": {
             "name": "Toys"
         }
+    },
+    {
+        "model": "mercuryapi.department",
+        "pk": 4,
+        "fields": {
+            "name": "Video Games"
+        }
+    },
+    {
+        "model": "mercuryapi.department",
+        "pk": 5,
+        "fields": {
+            "name": "Board Games"
+        }
     }
 
 ]

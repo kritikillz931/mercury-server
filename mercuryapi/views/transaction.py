@@ -27,9 +27,10 @@ class TransactionView(ViewSet):
         # and set its properties from what was sent in the
         # body of the request from the client.
         transaction = Transaction()
-        transaction.date.time() 
-        transaction.priceSold = request.data["priceSold"]
-        transaction.quantity = request.data["quantity"]
+        transaction.month = request.data["month"]
+        transaction.day = request.data["day"]
+        transaction.year = request.data["year"]
+        transaction.quantitySold = request.data["quantitySold"]
         # Try to save the new Schedule to the database, then
         # serialize the Schedule instance as JSON, and send the
         # JSON as a response to the client request
@@ -64,7 +65,7 @@ class TransactionView(ViewSet):
             return Response(ex.args[0], status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
-
+    
 
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single Schedule
@@ -127,5 +128,5 @@ class TransactionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Transaction
-        fields = ('id', 'employee', 'product', 'date', 'priceSold', 'quantitySold')
+        fields = ('id', 'employee', 'product', 'date', 'quantitySold')
         depth = 1
