@@ -4,6 +4,8 @@
         "pk": 1,
         "fields": {
             "user": 1,
+            "first_name": "Jack",
+            "last_name": "Humphrey",
             "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 15,
@@ -16,6 +18,8 @@
         "pk": 2,
         "fields": {
             "user": 2,
+            "first_name": "Jack",
+            "last_name": "Humphrey",
             "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 8,
@@ -28,6 +32,8 @@
         "pk": 3,
         "fields": {
             "user": 3,
+            "first_name": "Jack",
+            "last_name": "Humphrey",
             "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 65,
@@ -40,6 +46,8 @@
         "pk": 4,
         "fields": {
             "user": 4,
+            "first_name": "Jack",
+            "last_name": "Humphrey",
             "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 35,
@@ -52,6 +60,8 @@
         "pk": 5,
         "fields": {
             "user": 5,
+            "first_name": "Jack",
+            "last_name": "Humphrey",
             "position": "Sales Rep",
             "dateHired": "2021-09-09",
             "monthlySales": 62,
