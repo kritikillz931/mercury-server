@@ -32,7 +32,6 @@ class EmployeeView(ViewSet):
         employee.last_name = request.data["last_name"]
         employee.position = request.data["position"]
         employee.dateHired = request.data["dateHired"]
-        employee.monthlySales = request.data["monthlySales"]
         employee.image = request.data["image"]
         department = Department.objects.get(pk=request.data["departmentId"])
         employee.department = department
@@ -75,6 +74,29 @@ class EmployeeView(ViewSet):
             return Response(ex.args[0], status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
+
+
+    def update(self, request, pk=None):
+        """Handle PUT requests for a game
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        employee = Employee.objects.get(user=request.auth.user)
+
+        # Do mostly the same thing as POST, but instead of
+        # creating a new instance of Game, get the game record
+        # from the database whose primary key is `pk`
+        employee = Employee.objects.get(pk=pk)
+        employee.first_name = request.data["first_name"]
+        employee.last_name = request.data["last_name"]
+        employee.position = request.data["position"]
+        employee.dateHired = request.data["dateHired"]
+        employee.image = request.data["image"]
+        employee.save()
+
+        # 204 status code means everything worked but the
+        # server is not sending back any data in the response
+        return Response({}, status=status.HTTP_204_NO_CONTENT)    
 
 
     def destroy(self, request, pk=None):
@@ -138,5 +160,5 @@ class EmployeeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Employee
-        fields = ('id', 'first_name', 'last_name', 'position', 'dateHired', 'monthlySales', 'image', 'department', 'user')
+        fields = ('id', 'first_name', 'last_name', 'position', 'dateHired', 'image', 'department')
         depth = 1

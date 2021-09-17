@@ -29,8 +29,8 @@ class ProductView(ViewSet):
         product = Product()
         product.image = request.data["image"]
         product.name = request.data["name"]
-        product.cost = request.data["cost"]
-        product.priceSold = request.data["priceSold"]
+        product.wholeSaleCost = request.data["wholeSaleCost"]
+        product.retailPrice = request.data["retailPrice"]
         product.stock = request.data["cost"]
         department = Department.objects.get(pk=request.data["departmentId"])
         product.department = department
@@ -70,6 +70,31 @@ class ProductView(ViewSet):
             return Response(ex.args[0], status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
+
+
+    def update(self, request, pk=None):
+        """Handle PUT requests for a game
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+
+        # Do mostly the same thing as POST, but instead of
+        # creating a new instance of Game, get the game record
+        # from the database whose primary key is `pk`
+        product = Product.objects.get(pk=pk)
+        product.image = request.data["image"]
+        product.name = request.data["name"]
+        product.wholeSaleCost = request.data["wholeSaleCost"]
+        product.retailPrice = request.data["retailPrice"]
+        product.stock = request.data["stock"]
+        product.save()
+
+        # 204 status code means everything worked but the
+        # server is not sending back any data in the response
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+
+
 
 
     def destroy(self, request, pk=None):
@@ -133,5 +158,5 @@ class ProductSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Product
-        fields = ('id', 'department', 'image', 'name', 'cost', 'priceSold', 'stock')
+        fields = ('id', 'department', 'image', 'name', 'wholeSaleCost', 'retailPrice', 'stock')
         depth = 1
