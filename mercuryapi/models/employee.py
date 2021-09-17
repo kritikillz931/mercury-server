@@ -3,7 +3,9 @@ from django.contrib.auth.models import User #pylint:disable=(imported-auth-user)
 
 class Employee(models.Model):
     """Employee Model"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100 )
     dateHired = models.DateField()
     monthlySales = models.IntegerField()

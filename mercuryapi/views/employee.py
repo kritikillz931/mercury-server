@@ -1,5 +1,7 @@
 """View module for handling requests about games"""
 
+from django.contrib.auth.models import User
+from mercuryapi.models.department import Department
 from mercuryapi.models.employee import Employee
 from django.core.exceptions import ValidationError
 from rest_framework import status
@@ -26,10 +28,18 @@ class EmployeeView(ViewSet):
         # and set its properties from what was sent in the
         # body of the request from the client.
         employee = Employee()
+        employee.first_name = request.data["first_name"]
+        employee.last_name = request.data["last_name"]
         employee.position = request.data["position"]
         employee.dateHired = request.data["dateHired"]
         employee.monthlySales = request.data["monthlySales"]
         employee.image = request.data["image"]
+        department = Department.objects.get(pk=request.data["departmentId"])
+        employee.department = department
+        employee.employee = employee
+
+
+
 
         # Try to save the new employee to the database, then
         # serialize the employee instance as JSON, and send the
@@ -128,5 +138,5 @@ class EmployeeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Employee
-        fields = ('id', 'position', 'dateHired', 'monthlySales', 'image', 'department', 'user')
+        fields = ('id', 'first_name', 'last_name', 'position', 'dateHired', 'monthlySales', 'image', 'department', 'user')
         depth = 1
